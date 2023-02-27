@@ -1,0 +1,136 @@
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 1.6rem 0;
+    background-color: var(--background-color);
+    box-shadow: 0px 2px 6px var(--shadow-color);
+    height: 5.75rem;
+    z-index: 10;
+}
+
+.header-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 0.4rem;
+}
+
+.header-desktop {
+    padding: 0 7.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-desktop-left-box,
+.header-desktop-right-box,
+.header-category-box {
+    display: flex;
+    align-items: center;
+    grid-gap: 2.4rem;
+}
+
+.header-logo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 0.4rem;
+}
+
+.header-category-radio {
+    display: none;
+}
+
+.header-category-radio:checked + label {
+    color: transparent;
+    border-bottom: 2px solid white;
+    border-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+    border-image-slice: 1;
+    border-radius: 50%;
+}
+
+.header-category-item {
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+
+.header-search-box {
+    border: 2px solid var(--hr-color);
+    width: 18rem;
+    height: 3.2rem;
+    border-radius: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.header-search-input {
+    width: calc(100% - 2rem);
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.header-search-box > i {
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.header-search-box > i:hover {
+    color: transparent;
+}
+
+.header-desktop-right-box > *{
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.header-username {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.header-desktop-right-box > i {
+    font-size: 2rem;
+}
+
+.header-desktop-right-box > i:hover,
+.header-username:hover {
+    color: transparent;
+}
+
+.header-mobile > * {
+    font-size: 2rem;
+}
+
+.gradient-border {
+    border-color: transparent;
+    border-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+    border-image-slice: 1;
+    border-radius: 0.4rem;
+}
+
+@media screen and (max-width: 1199px) {
+    .header-mobile {
+        display: flex;
+    }
+
+    .header-desktop {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .header-mobile {
+        display: none;
+    }
+
+    .header-desktop {
+        display: flex;
+    }
+}
