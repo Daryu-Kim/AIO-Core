@@ -56,7 +56,7 @@
             <img :src="item.icon" alt="" class="popular-item-img" />
             <div class="popular-item-box">
               <p class="popular-item-title bold">{{ item.name }}</p>
-              <p class="popular-item-category medium">{{ item.category }}</p>
+              <p class="popular-item-category medium">{{ item.category[0] }}</p>
               <p class="popular-item-star regular">💾 {{ item.download }}</p>
             </div>
           </swiper-slide>

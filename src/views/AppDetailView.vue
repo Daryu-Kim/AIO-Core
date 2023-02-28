@@ -69,45 +69,54 @@
       </swiper>
       <div class="content-updated-box">
         <p class="content-updated-title bold">패치 노트</p>
-        <p class="content-updated-des" ref="UPDATED">
+        <p class="content-updated-des" ref="APP_PATCH">
           Lorem ipsum dolor sit amet consectetur.
+        </p>
+      </div>
+      <div class="content-inf-box">
+        <p class="content-inf-title bold">앱 정보</p>
+        <p class="content-inf-des" ref="APP_INF">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint commodi
+          velit praesentium obcaecati voluptatem cupiditate dolore, saepe
+          officiis eius autem, natus laudantium fugit architecto nesciunt
+          necessitatibus consequuntur. Aperiam, dolorem molestiae?
         </p>
       </div>
       <div class="content-review-box">
         <p class="content-review-title bold">리뷰</p>
         <div class="content-review-circle-box">
-          <svg class="circle-progress" viewBox="0 0 120 120">
-            <defs>
-              <linearGradient id="gradient" y1="0" y2="0">
-                <stop stop-color="#b721ff" offset="0" />
-                <stop stop-color="#21d4fd" offset="1" />
-              </linearGradient>
-            </defs>
-            <circle class="frame" cx="60" cy="60" r="54" stroke-width="12" />
-            <circle
-              ref="BAR"
-              class="bar"
-              cx="60"
-              cy="60"
-              r="54"
-              stroke-width="12"
-            />
-          </svg>
-          <p class="content-review-circle-value bold" ref="REVIEW">1.0</p>
+          <circle-progress
+            class="content-review-circle"
+            :is-gradient="true"
+            :gradient="{
+              angle: 90,
+              startColor: '#b721ff',
+              stopColor: '#21d4fd',
+            }"
+            :size="160"
+            :percent="app_review_percent"
+          />
+          <p class="content-review-circle-value bold" ref="APP_CIRCLE_REVIEW">
+            0.0
+          </p>
         </div>
       </div>
       <div class="content-update-box">
         <p class="content-update-title bold">업데이트 날짜</p>
         <p class="content-update-des" ref="APP_UPDATE_AT">0000. 0. 00.</p>
       </div>
+      <div class="content-upload-box">
+        <p class="content-upload-title bold">최초 게시일</p>
+        <p class="content-upload-des" ref="APP_UPLOAD_AT">0000. 0. 00</p>
+      </div>
       <div class="content-category-box">
         <p
           class="content-category-item"
-          v-for="(item, index) in 2"
+          v-for="(item, index) in app_category"
           :key="index"
           ref="CATEGORY_ITEM"
         >
-          Lorem, ipsum.
+          {{ item }}
         </p>
       </div>
       <div class="content-contact-box">
@@ -132,28 +141,28 @@
           <div class="content-contact-item-box">
             <i class="fa-solid fa-earth-asia"></i>
             <div class="content-contact-item-text-box">
-              <p>웹사이트</p>
+              <p class="bold">웹사이트</p>
               <p ref="CONTACT_WEB">Lorem ipsum dolor sit.</p>
             </div>
           </div>
           <div class="content-contact-item-box">
             <i class="fa-solid fa-envelope"></i>
             <div class="content-contact-item-text-box">
-              <p>이메일</p>
+              <p class="bold">이메일</p>
               <p ref="CONTACT_EMAIL">Lorem ipsum dolor sit.</p>
             </div>
           </div>
           <div class="content-contact-item-box">
             <i class="fa-solid fa-location-dot"></i>
             <div class="content-contact-item-text-box">
-              <p>주소</p>
+              <p class="bold">주소</p>
               <p ref="CONTACT_ADDRESS">Lorem ipsum dolor sit.</p>
             </div>
           </div>
           <div class="content-contact-item-box">
             <i class="fa-solid fa-shield-halved"></i>
             <div class="content-contact-item-text-box">
-              <p>개인정보처리방침</p>
+              <p class="bold">개인정보처리방침</p>
               <p ref="CONTACT_PRIVACY">Lorem ipsum dolor sit.</p>
             </div>
           </div>

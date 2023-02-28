@@ -9,12 +9,15 @@
 
 .content {
     margin-top: 5.75rem;
-    padding: 2.8rem 0;
+    padding-bottom: 2.8rem;
 }
 
 .content-install-box {
-    padding: 1.6rem 0;
     position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 13;
+    max-height: 40rem;
+    background-color: var(--background-color);
 }
 
 .content-install-box * {
@@ -24,6 +27,7 @@
 .content-install-thumbnail {
     aspect-ratio: 16 / 9;
     width: 100%;
+    max-height: 30rem;
 }
 
 .content-install-fw-box {
@@ -32,17 +36,18 @@
     grid-gap: 1.6rem;
     position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom: 1.6rem;
     z-index: 2;
 }
 
 .content-install-overlay {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 13;
+    max-height: 40rem;
     position: absolute;
-    top: 1.6rem;
+    top: 0;
     z-index: 1;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, var(--gradient-overlay) 75%);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, var(--gradient-overlay) 80%);
 }
 
 .content-install-app-box {
@@ -112,19 +117,23 @@
 }
 
 .content-updated-box,
+.content-inf-box,
 .content-review-box,
-.content-update-box {
+.content-update-box,
+.content-upload-box {
     width: 80%;
     margin: 0 auto;
     margin-top: 2.4rem;
 }
 
 .content-updated-title,
+.content-inf-title,
 .content-review-title {
     font-size: 2rem;
 }
 
-.content-updated-des {
+.content-updated-des,
+.content-inf-des {
     margin-top: 0.8rem;
     font-size: 1.4rem;
     color: var(--sub-color);
@@ -132,44 +141,28 @@
 
 .content-review-circle-box {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    align-items: center;
     position: relative;
 }
 
-.circle-progress {
-    width: 15rem;
-}
-
-.frame, .bar {
-    fill: none;
-}
-
-.frame {
-    stroke: var(--sub-color);
-}
-
-.bar {
-    stroke: url(#gradient);
-    stroke-linecap: round;
-}
-
 .content-review-circle-value {
-    width: fit-content;
     position: absolute;
+    text-align: center;
+    width: fit-content;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3.6rem;
-    text-align: center;
+    font-size: 2.8rem;
 }
 
-.content-update-title {
+.content-update-title,
+.content-upload-title {
     font-size: 1.4rem;
 }
 
-.content-update-des {
+.content-update-des,
+.content-upload-des {
     font-size: 1.2rem;
     color: var(--sub-color);
 }
@@ -250,6 +243,10 @@
 
 .content-contact-item-text-box > p {
     font-size: 1.4rem;
+}
+
+.content-contact-item-text-box > p:last-child {
+    color: var(--sub-color);
 }
 
 @media screen and (min-width: 1200px) {
