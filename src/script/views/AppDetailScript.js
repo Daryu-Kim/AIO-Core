@@ -30,40 +30,65 @@ export default {
       app_link: "",
       img_list: [1, 2, 3],
       app_category: [],
-      app_review_percent: 0,
+      app_user_percent: 0,
+      app_func_percent: 0,
+      app_aio_percent: 0,
       app_download: 0,
       app_view: 0,
+      circle_size: 0,
+      circle_width: 0,
     };
+  },
+  created() {
+    this.circle_size = window.innerWidth / 5;
+    if (this.circle_size >= 180) this.circle_size = 180;
+
+    this.circle_width = window.innerWidth / 75;
+    if (this.circle_width >= 16) this.circle_width = 16;
   },
   mounted() {
     this.app_data.push(this.getData(this.app_doc_temp));
     Promise.all(this.app_data).then(async (result) => {
       var update = result[0].update_at.toDate();
       var upload = result[0].upload_at.toDate();
-      var review = (result[0].review / 10).toFixed(1);
+      var user_review = (result[0].user_review / 10).toFixed(1);
+      var func_review = (result[0].func_review / 10).toFixed(1);
+      var aio_review = (result[0].aio_review / 10).toFixed(1);
+      var all_review = (
+        (Number(user_review) + Number(func_review) + Number(aio_review)) /
+        3
+      ).toFixed(1);
+      console.log(all_review);
       this.app_view = result[0].view;
       this.app_download = result[0].download;
       this.app_link = result[0].link;
       this.img_list = result[0].img;
       this.app_category = result[0].category;
-      this.app_review_percent = result[0].review;
+      this.app_user_percent = result[0].user_review;
+      this.app_func_percent = result[0].func_review;
+      this.app_aio_percent = result[0].aio_review;
 
       this.$refs.APP_ICON.src = result[0].icon;
       this.$refs.APP_TITLE.innerHTML = result[0].name;
       this.$refs.APP_AUTHOR.innerHTML = result[0].author;
-      this.$refs.APP_REVIEW.innerHTML = review;
+      this.$refs.APP_REVIEW.innerHTML = all_review;
       this.$refs.APP_DOWNLOAD.innerHTML = this.app_download + 1;
       this.$refs.APP_VIEW.innerHTML = this.app_view + 1;
       this.$refs.APP_THUMBNAIL.src = result[0].thumbnail;
-      this.$refs.APP_PATCH.innerHTML = result[0].patch;
       this.$refs.APP_INF.innerHTML = result[0].inf;
-      this.$refs.APP_UPDATE_AT.innerHTML = `${update.getFullYear()}. ${update.getMonth()}. ${update.getDate()}`;
-      this.$refs.APP_UPLOAD_AT.innerHTML = `${upload.getFullYear()}. ${upload.getMonth()}. ${upload.getDate()}`;
+      this.$refs.APP_UPDATE_AT.innerHTML = `${update.getFullYear()}.
+        ${update.getMonth() + 1}.
+        ${update.getDate()}`;
+      this.$refs.APP_UPLOAD_AT.innerHTML = `${upload.getFullYear()}.
+        ${upload.getMonth() + 1}.
+        ${upload.getDate()}`;
       this.$refs.CONTACT_WEB.innerHTML = result[0].contact[0];
       this.$refs.CONTACT_EMAIL.innerHTML = result[0].contact[1];
       this.$refs.CONTACT_ADDRESS.innerHTML = result[0].contact[2];
       this.$refs.CONTACT_PRIVACY.innerHTML = result[0].contact[3];
-      this.$refs.APP_CIRCLE_REVIEW.innerHTML = review;
+      this.$refs.APP_AIO_REVIEW.innerHTML = `AIO<br/>${aio_review}`;
+      this.$refs.APP_FUNC_REVIEW.innerHTML = `기능<br/>${func_review}`;
+      this.$refs.APP_USER_REVIEW.innerHTML = `유저<br/>${user_review}`;
       await updateDoc(doc(db, "Apps", this.app_doc_temp), {
         view: this.app_view + 1,
       });

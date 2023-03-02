@@ -116,7 +116,6 @@
     border-radius: 0.8rem;
 }
 
-.content-updated-box,
 .content-inf-box,
 .content-review-box,
 .content-update-box,
@@ -126,23 +125,26 @@
     margin-top: 2.4rem;
 }
 
-.content-updated-title,
 .content-inf-title,
 .content-review-title {
     font-size: 2rem;
 }
 
-.content-updated-des,
 .content-inf-des {
     margin-top: 0.8rem;
     font-size: 1.4rem;
     color: var(--sub-color);
 }
 
-.content-review-circle-box {
+.content-review-flex-box {
     display: flex;
     justify-content: center;
     align-items: center;
+    grid-gap: 1.6rem;
+}
+
+.content-review-circle-box {
+    width: fit-content;
     position: relative;
 }
 
@@ -153,7 +155,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2.8rem;
+    font-size: min(4vw, 2.4rem);
 }
 
 .content-update-title,
@@ -247,6 +249,19 @@
 
 .content-contact-item-text-box > p:last-child {
     color: var(--sub-color);
+}
+
+@media screen and (max-width: 767px) {
+    .content-install-detail-box {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .content-install-btn {
+        width: 14rem;
+    }
 }
 
 @media screen and (min-width: 1200px) {

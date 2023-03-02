@@ -1,0 +1,89 @@
+@import "@/css/_variabled.css";
+@import "@/css/font.css";
+@import "@/css/reset.css";
+
+.wrapper {
+    height: 100vh;
+    position: relative;
+}
+
+.content {
+    min-height: calc(100vh - 5.75rem - 8.5rem);
+    margin-top: 5.75rem;
+    padding: 0 2.4rem;
+    padding-top: 3.6rem;
+    padding-bottom: 2.8rem;
+}
+
+.content-title {
+    font-size: 2.4rem;
+    margin-bottom: 1.6rem;
+}
+
+.content-item-box {
+    display: grid;
+    grid-gap: 2.4rem;
+}
+
+.content-item {
+    border-radius: 0.8rem;
+    cursor: pointer;
+}
+
+.content-item:hover {
+    background-color: var(--sub-deepdark-color);
+}
+
+.content-item-thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.8rem;
+}
+
+.content-item-detail-box {
+    display: flex;
+    align-items: center;
+    grid-gap: 1.6rem;
+    margin-top: 0.8rem;
+}
+
+.content-item-detail-icon {
+    width: 6.4rem;
+    border-radius: 0.8rem;
+}
+
+.content-item-detail-text-title {
+    font-size: 1.6rem;
+    overflow: hidden;
+}
+
+.content-item-detail-text-author,
+.content-item-detail-text-download {
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width: 767px) {
+    .content-item-box {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .content-item-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .content {
+        width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .content-item-box {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

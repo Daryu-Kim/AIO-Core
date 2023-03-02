@@ -115,6 +115,30 @@
     border-radius: 0.4rem;
 }
 
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--overlay-color);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.overlay-menu {
+    height: 100vh;
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    right: 0;
+    background-color: var(--background-color);
+}
+
+.overlay-menu.open {
+    right: 0;
+}
+
 @media screen and (max-width: 1199px) {
     .header-mobile {
         display: flex;
@@ -122,6 +146,11 @@
 
     .header-desktop {
         display: none;
+    }
+
+    .overlay-menu {
+        width: 100vw;
+        right: -100vw;
     }
 }
 
@@ -132,5 +161,10 @@
 
     .header-desktop {
         display: flex;
+    }
+
+    .overlay-menu {
+        width: 28rem;
+        right: -28rem;
     }
 }

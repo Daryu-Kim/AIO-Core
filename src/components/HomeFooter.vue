@@ -16,8 +16,12 @@
       <i class="fa-brands fa-facebook gradient-color"></i>
       <i class="fa-brands fa-instagram gradient-color"></i>
       <i class="fa-brands fa-telegram gradient-color"></i>
-      <hr />
-      <i class="fa-solid fa-download gradient-color"></i>
+      <hr v-if="defferedPrompt" />
+      <i
+        class="fa-solid fa-download gradient-color"
+        v-if="defferedPrompt"
+        @click="install"
+      ></i>
     </div>
     <div class="footer-mobile-box">
       <ul class="footer-nav">
@@ -32,14 +36,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "HomeFooter",
-  props: {
-    msg: String,
-  },
-};
-</script>
+<script src="@/script/components/HomeFooter.js" />
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped src="@/css/components/HomeFooter.css" />

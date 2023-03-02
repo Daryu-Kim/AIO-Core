@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <HomeHeader />
-    <div class="content">
+    <div class="content" ref="CONTENT">
       <div class="content-install-box">
         <video
           class="content-install-thumbnail"
@@ -44,7 +44,7 @@
             @click="appInstallClick"
             value="asdf"
           >
-            설치
+            이동
           </p>
         </div>
         <div class="content-install-overlay"></div>
@@ -67,12 +67,6 @@
           <img :src="item" alt="" class="app-img" />
         </swiper-slide>
       </swiper>
-      <div class="content-updated-box">
-        <p class="content-updated-title bold">패치 노트</p>
-        <p class="content-updated-des" ref="APP_PATCH">
-          Lorem ipsum dolor sit amet consectetur.
-        </p>
-      </div>
       <div class="content-inf-box">
         <p class="content-inf-title bold">앱 정보</p>
         <p class="content-inf-des" ref="APP_INF">
@@ -83,22 +77,62 @@
         </p>
       </div>
       <div class="content-review-box">
-        <p class="content-review-title bold">리뷰</p>
-        <div class="content-review-circle-box">
-          <circle-progress
-            class="content-review-circle"
-            :is-gradient="true"
-            :gradient="{
-              angle: 90,
-              startColor: '#b721ff',
-              stopColor: '#21d4fd',
-            }"
-            :size="160"
-            :percent="app_review_percent"
-          />
-          <p class="content-review-circle-value bold" ref="APP_CIRCLE_REVIEW">
-            0.0
-          </p>
+        <p class="content-review-title bold">평가</p>
+        <div class="content-review-flex-box">
+          <div class="content-review-circle-box">
+            <circle-progress
+              class="content-review-circle"
+              :is-gradient="true"
+              :gradient="{
+                angle: 90,
+                startColor: '#b721ff',
+                stopColor: '#21d4fd',
+              }"
+              :border-bg-width="circle_width"
+              :border-width="circle_width"
+              :size="circle_size"
+              :percent="app_aio_percent"
+            />
+            <p class="content-review-circle-value bold" ref="APP_AIO_REVIEW">
+              0.0
+            </p>
+          </div>
+          <div class="content-review-circle-box">
+            <circle-progress
+              class="content-review-circle"
+              :is-gradient="true"
+              :gradient="{
+                angle: 90,
+                startColor: '#b721ff',
+                stopColor: '#21d4fd',
+              }"
+              :border-bg-width="circle_width"
+              :border-width="circle_width"
+              :size="circle_size"
+              :percent="app_func_percent"
+            />
+            <p class="content-review-circle-value bold" ref="APP_FUNC_REVIEW">
+              0.0
+            </p>
+          </div>
+          <div class="content-review-circle-box">
+            <circle-progress
+              class="content-review-circle"
+              :is-gradient="true"
+              :gradient="{
+                angle: 90,
+                startColor: '#b721ff',
+                stopColor: '#21d4fd',
+              }"
+              :border-bg-width="circle_width"
+              :border-width="circle_width"
+              :size="circle_size"
+              :percent="app_user_percent"
+            />
+            <p class="content-review-circle-value bold" ref="APP_USER_REVIEW">
+              0.0
+            </p>
+          </div>
         </div>
       </div>
       <div class="content-update-box">
