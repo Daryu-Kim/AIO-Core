@@ -3,11 +3,11 @@
     <HomeHeader />
     <div class="content">
       <p class="content-title bold">
-        "{{ search }}"에 대한 검색 결과 "{{ search_data.length }}건"
+        "{{ category }}"에 대한 탐색 결과 "{{ category_data.length }}건"
       </p>
       <div class="content-item-box">
         <div
-          v-for="(item, index) in search_data"
+          v-for="(item, index) in category_data"
           :key="index"
           class="content-item"
           @click="appOnClick(item.id)"
@@ -30,6 +30,6 @@
   </div>
 </template>
 
-<style scoped src="@/css/views/AppSearch.css" />
+<style scoped src="@/css/views/AppCategory.css" />
 
-<script src="@/script/views/AppSearch.js" />
+<script src="@/script/views/AppCategory.js" />

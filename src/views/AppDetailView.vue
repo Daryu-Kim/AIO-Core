@@ -149,6 +149,7 @@
           v-for="(item, index) in app_category"
           :key="index"
           ref="CATEGORY_ITEM"
+          @click="categoryClick(item)"
         >
           {{ item }}
         </p>

@@ -12,6 +12,7 @@ import { db } from "../modules/Firebase";
 
 import "vue3-circle-progress/dist/circle-progress.css";
 import CircleProgress from "vue3-circle-progress";
+import router from "@/router";
 
 // @ is an alias to /src
 export default {
@@ -121,6 +122,10 @@ export default {
         this.$refs.CONTACT_NAV.classList.remove("fa-chevron-up");
         this.$refs.CONTACT_NAV.classList.add("fa-chevron-down");
       }
+    },
+    categoryClick(category) {
+      localStorage.setItem("category", category);
+      router.push("/category");
     },
   },
   setup() {

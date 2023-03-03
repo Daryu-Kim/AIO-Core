@@ -1,0 +1,87 @@
+@import "@/css/_variabled.css";
+@import "@/css/font.css";
+@import "@/css/reset.css";
+
+.wrapper {
+    height: 100vh;
+    position: relative;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-gap: 3.6rem;
+}
+
+.content-login-title {
+    font-size: 2.4rem;
+}
+
+.content-form-box {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 1.2rem;
+}
+
+.content-form-input-box {
+    border: 2px solid var(--sub-color);
+    border-radius: 100rem;
+    padding: 0.6rem 2rem;
+    display: flex;
+    align-items: center;
+    grid-gap: 1.2rem;
+    background: linear-gradient(var(--background-color), var(--background-color)),
+        linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.content-form-input-box > i {
+    width: 1.8rem;
+}
+
+.content-form-input {
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 1.4rem;
+}
+
+.content-form-input:focus {
+    background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+}
+
+.focused {
+    border: 2px solid transparent;
+}
+
+.content-form-func-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-form-func-text {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--sub-color);
+}
+
+.content-form-func-text:hover {
+    color: var(--primary-color);
+}
+
+.content-login-btn {
+    cursor: pointer;
+    font-size: 1.4rem;
+    border-radius: 100rem;
+    padding: 0.6rem 3.6rem;
+}
