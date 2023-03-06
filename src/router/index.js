@@ -5,6 +5,8 @@ import AppSearch from "../views/AppSearch.vue";
 import AppCategory from "../views/AppCategory.vue";
 import UserLogin from "../views/UserLogin";
 import UserRegister from "../views/UserRegister";
+import Developer from "../views/Developer";
+import AppModify from "../views/AppModify";
 
 const routes = [
   {
@@ -36,6 +38,16 @@ const routes = [
     path: "/register",
     name: "register",
     component: UserRegister,
+  },
+  {
+    path: "/developer",
+    name: "developer",
+    component: Developer,
+  },
+  {
+    path: "/modify",
+    name: "modify",
+    component: AppModify,
   },
 ];
 

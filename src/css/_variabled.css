@@ -24,6 +24,7 @@
     --gradient-overlay: rgba(16, 16, 16, 1);
 
     --overlay-color: rgba(0, 0, 0, 0.75);
+    --dialog-background-color: #e0e0e0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -40,6 +41,7 @@
         --shadow-color: rgba(153, 153, 153, 0.35);
 
         --box-hover-color: #202020;
+        --dialog-background-color: #202020;
     }
 }
 
