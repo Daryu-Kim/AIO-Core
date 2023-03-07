@@ -34,21 +34,56 @@
             v-for="(item, index) in app_category"
             :key="index"
           >
-            <input type="radio" name="category" :id="item" />
+            <input
+              type="radio"
+              name="category"
+              :id="item"
+              ref="INPUT_CATEGORY"
+              @change="categoryChange($event)"
+              :value="item"
+            />
             <label :for="item" class="content-label">{{ item }}</label>
           </div>
         </div>
-        <p class="content-subtitle bold">Game 카테고리</p>
+        <p class="content-subtitle bold margin">Game 카테고리</p>
         <div class="content-radio-box">
           <div
             class="content-radio-list"
             v-for="(item, index) in game_category"
             :key="index"
           >
-            <input type="radio" name="category" :id="item" />
+            <input
+              type="radio"
+              name="category"
+              :id="item"
+              ref="INPUT_CATEGORY"
+              @change="categoryChange($event)"
+              :value="item"
+            />
             <label :for="item" class="content-label">{{ item }}</label>
           </div>
         </div>
+      </div>
+      <div class="content-box">
+        <p class="content-title bold">서비스 아이콘</p>
+        <hr class="content-hr" />
+        <input type="file" accept="image/*" @change="iconChange($event)" />
+      </div>
+      <div class="content-box">
+        <p class="content-title bold">서비스 썸네일</p>
+        <hr class="content-hr" />
+        <input type="file" accept="video/*" @change="thumbnailChange($event)" />
+      </div>
+      <div class="content-box">
+        <p class="content-title bold">서비스 이미지</p>
+        <hr class="content-hr" />
+        <input
+          type="file"
+          accept="image/*"
+          multiple
+          @change="imageChange($event)"
+        />
+        <video class="content-preview" ref="INPUT_THUMBNAIL_PREVIEW"></video>
       </div>
       <div class="content-box">
         <p class="content-title bold">서비스 태그</p>
@@ -60,22 +95,70 @@
           placeholder="Enter로 태그 추가"
           @keyup.enter="searchAdd"
         />
+        <div class="content-p-list">
+          <p
+            class="content-p-item"
+            v-for="(item, index) in search_tag"
+            :key="index"
+            @click="searchRemove(index)"
+          >
+            {{ item }}
+          </p>
+        </div>
       </div>
       <div class="content-box lang">
         <p class="content-title bold">서비스 개발언어</p>
         <hr class="content-hr" />
-        <input type="radio" name="lang" id="vanilla" />
-        <label for="vanilla" class="content-label vanilla">Vanilla JS</label>
-        <input type="radio" name="lang" id="angular" />
-        <label for="angular" class="content-label angular">Angular</label>
-        <input type="radio" name="lang" id="react" />
-        <label for="react" class="content-label react">React</label>
-        <input type="radio" name="lang" id="vue" />
-        <label for="vue" class="content-label vue">Vue</label>
-        <input type="radio" name="lang" id="polymer" />
-        <label for="polymer" class="content-label polymer">Polymer</label>
-        <input type="radio" name="lang" id="ionic" />
-        <label for="ionic" class="content-label ionic">Ionic</label>
+        <div class="content-p-list">
+          <input
+            type="radio"
+            name="lang"
+            id="vanilla"
+            @change="langChange($event)"
+            value="Vanilla,#F7DF1E"
+          />
+          <label for="vanilla" class="content-label vanilla">Vanilla JS</label>
+          <input
+            type="radio"
+            name="lang"
+            id="angular"
+            @change="langChange($event)"
+            value="Angular,#DD0031"
+          />
+          <label for="angular" class="content-label angular">Angular</label>
+          <input
+            type="radio"
+            name="lang"
+            id="react"
+            @change="langChange($event)"
+            value="React,#61DAFB"
+          />
+          <label for="react" class="content-label react">React</label>
+          <input
+            type="radio"
+            name="lang"
+            id="vue"
+            @change="langChange($event)"
+            value="Vue,#4FC08D"
+          />
+          <label for="vue" class="content-label vue">Vue</label>
+          <input
+            type="radio"
+            name="lang"
+            id="polymer"
+            @change="langChange($event)"
+            value="Polymer,#FF4470"
+          />
+          <label for="polymer" class="content-label polymer">Polymer</label>
+          <input
+            type="radio"
+            name="lang"
+            id="ionic"
+            @change="langChange($event)"
+            value="Ionic,#3880FF"
+          />
+          <label for="ionic" class="content-label ionic">Ionic</label>
+        </div>
       </div>
       <div class="content-box">
         <p class="content-title bold">서비스 이동 링크</p>
@@ -85,6 +168,7 @@
           type="text"
           placeholder="https://"
           ref="INPUT_LINK"
+          @focus="linkFocus"
         />
       </div>
       <div class="content-box contact">
@@ -115,6 +199,9 @@
           ref="INPUT_CONTACT_PRIVACY"
         />
       </div>
+      <p class="content-submit-btn gradient-bg bold" @click="submitClick">
+        제출
+      </p>
     </div>
     <HomeFooter />
   </div>
