@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, getDoc, addDoc } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import {
   getAuth,
@@ -40,6 +40,7 @@ export function registerWithEmail(email, password, name, phone) {
       // Signed in
       const user = userCredential.user;
       localStorage.setItem("uid", user.uid);
+      localStorage.setItem("username", name);
 
       await setDoc(doc(db, "Users", user.uid), {
         phone: phone,
@@ -60,11 +61,19 @@ export function registerWithEmail(email, password, name, phone) {
 
 export function loginWithEmail(email, password) {
   signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    .then(async (userCredential) => {
       // Signed in
       const user = userCredential.user;
       localStorage.setItem("uid", user.uid);
-      router.push("/developer");
+
+      const docSnap = await getDoc(doc(db, "Apps", user.uid));
+
+      if (docSnap.exists()) {
+        localStorage.setItem("username", docSnap.data().name);
+        router.push("/developer");
+      } else {
+        console.log("No Such Document!");
+      }
     })
     .catch((error) => {
       const errorCode = error.code;

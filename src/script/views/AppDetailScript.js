@@ -30,7 +30,7 @@ export default {
       app_doc_temp: localStorage.getItem("APP_DOC_TEMP"),
       app_link: "",
       img_list: [1, 2, 3],
-      app_category: [],
+      app_category: "",
       app_user_percent: 0,
       app_func_percent: 0,
       app_aio_percent: 0,

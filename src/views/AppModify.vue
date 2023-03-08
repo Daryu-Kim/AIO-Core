@@ -67,22 +67,27 @@
       <div class="content-box">
         <p class="content-title bold">서비스 아이콘</p>
         <hr class="content-hr" />
-        <input type="file" accept="image/*" @change="iconChange($event)" />
+        <input
+          type="file"
+          accept="image/*"
+          @change="iconChange($event)"
+          ref="INPUT_ICON"
+        />
       </div>
       <div class="content-box">
         <p class="content-title bold">서비스 썸네일</p>
         <hr class="content-hr" />
-        <input type="file" accept="video/*" @change="thumbnailChange($event)" />
+        <input
+          type="file"
+          accept="video/*"
+          @change="thumbnailChange($event)"
+          ref="INPUT_THUMBNAIL"
+        />
       </div>
       <div class="content-box">
         <p class="content-title bold">서비스 이미지</p>
         <hr class="content-hr" />
-        <input
-          type="file"
-          accept="image/*"
-          multiple
-          @change="imageChange($event)"
-        />
+        <input type="file" accept="image/*" multiple ref="INPUT_IMG" />
         <video class="content-preview" ref="INPUT_THUMBNAIL_PREVIEW"></video>
       </div>
       <div class="content-box">

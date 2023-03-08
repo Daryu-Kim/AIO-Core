@@ -30,7 +30,7 @@ export default {
     getDocs(
       query(
         collection(db, "Apps"),
-        where("category", "array-contains", this.category),
+        where("category", "==", this.category),
         orderBy("download", "desc")
       )
     ).then((querySnapshot) => {

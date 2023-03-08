@@ -36,6 +36,11 @@
     border-color: var(--hr-color);
 }
 
+.content-if {
+    font-size: 2rem;
+    color: var(--sub-color);
+}
+
 .app-item-img {
     width: 25%;
     max-width: 4.8rem;

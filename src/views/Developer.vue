@@ -4,11 +4,14 @@
     <div class="content">
       <div class="content-title-box">
         <p class="content-title-text bold">내 서비스</p>
-        <p class="content-title-add-btn gradient-bg bold" @click="addClick">
+        <p class="content-title-add-btn gradient-bg bold" @click="modifyClick">
           Add
         </p>
       </div>
       <hr class="content-hr" />
+      <p class="content-if bold" v-if="!myServices.length > 0">
+        "Add" 버튼을 클릭하여 새로운 서비스를 등록해보세요!
+      </p>
       <swiper
         :space-between="6"
         :slidesPerView="1"
@@ -45,7 +48,7 @@
           </div>
           <div class="app-control-box">
             <p class="app-control-btn bold view" @click="viewClick">보기</p>
-            <p class="app-control-btn bold modify" @click="modifyClick">수정</p>
+            <p class="app-control-btn bold modify" @click="reClick">수정</p>
             <p
               class="app-control-btn bold remove"
               @click="removeClick(item.id, item.name)"

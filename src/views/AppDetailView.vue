@@ -146,12 +146,10 @@
       <div class="content-category-box">
         <p
           class="content-category-item"
-          v-for="(item, index) in app_category"
-          :key="index"
           ref="CATEGORY_ITEM"
-          @click="categoryClick(item)"
+          @click="categoryClick(app_category)"
         >
-          {{ item }}
+          {{ app_category }}
         </p>
       </div>
       <div class="content-contact-box">
