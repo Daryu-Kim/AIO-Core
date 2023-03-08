@@ -56,8 +56,8 @@ export default {
     console.log(this.myServices);
   },
   methods: {
-    viewClick() {
-      localStorage.setItem("APP_DOC_TEMP", this.myServices[0].id);
+    viewClick(index) {
+      localStorage.setItem("APP_DOC_TEMP", this.myServices[index].id);
       router.push("/details");
     },
     modifyClick() {

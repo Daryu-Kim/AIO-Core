@@ -66,7 +66,7 @@ export function loginWithEmail(email, password) {
       const user = userCredential.user;
       localStorage.setItem("uid", user.uid);
 
-      const docSnap = await getDoc(doc(db, "Apps", user.uid));
+      const docSnap = await getDoc(doc(db, "Users", user.uid));
 
       if (docSnap.exists()) {
         localStorage.setItem("username", docSnap.data().name);

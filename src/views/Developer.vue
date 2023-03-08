@@ -47,7 +47,9 @@
             </div>
           </div>
           <div class="app-control-box">
-            <p class="app-control-btn bold view" @click="viewClick">보기</p>
+            <p class="app-control-btn bold view" @click="viewClick(index)">
+              보기
+            </p>
             <p class="app-control-btn bold modify" @click="reClick">수정</p>
             <p
               class="app-control-btn bold remove"
